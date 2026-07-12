@@ -6,7 +6,7 @@ How to run this program:
 1. Update .env file located on root so that ANTHROPIC_API_KEY is defined with a valid Anthropic Key 
 2. Activate .venv virtual environment for the project: source .venv/bin/activate  
 3. Run the program: 
-ython -m research_coordinator "Artificial Intelligence"
+python -m research_coordinator "Artificial Intelligence"
 4. Fill free to play with max_iterations and min_subtopics (and related prompts and methods, e.g. from decomposition.py, refinement.py, research.py and coverage.py)
 The output will be something like this:
 
