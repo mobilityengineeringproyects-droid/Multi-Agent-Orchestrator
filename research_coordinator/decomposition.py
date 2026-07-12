@@ -15,7 +15,7 @@ DECOMPOSITION_SCHEMA = {
     "properties": {
         "subtopics": {
             "type": "array",
-            "minItems": 5,
+            "minItems": 3,
             "items": {
                 "type": "object",
                 "properties": {
@@ -40,7 +40,7 @@ DECOMPOSITION_SCHEMA = {
 
 DECOMPOSITION_SYSTEM_PROMPT = (
     "You are a research planning specialist. Given a broad research topic, decompose "
-    "it into at least 5 distinct, non-overlapping subtopics that together cover the "
+    "it into at least 3 distinct, non-overlapping subtopics that together cover the "
     "full breadth of the subject (for example: historical/background, "
     "technical/mechanistic, economic, social/ethical, current state, future outlook, "
     "or comparative/regional angles — whichever are actually relevant to this topic). "
@@ -54,7 +54,7 @@ DECOMPOSITION_SYSTEM_PROMPT = (
 async def decompose_topic(
     topic: str,
     *,
-    min_subtopics: int = 5,
+    min_subtopics: int = 3,
     model: str | None = None,
 ) -> list[Subtopic]:
     """Ask an LLM to break `topic` into at least `min_subtopics` distinct subtopics."""
@@ -70,7 +70,7 @@ async def decompose_topic(
 
     prompt = (
         f"Research topic: {topic!r}\n\n"
-        f"Produce at least {min_subtopics} subtopics as instructed."
+        f"Produce {min_subtopics} subtopics as instructed."
     )
 
     async for message in query(prompt=prompt, options=options):
